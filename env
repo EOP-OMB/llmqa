@@ -1,0 +1,15 @@
+PERSIST_DIRECTORY=/db
+#MODEL_TYPE=GPT4All
+MODEL_TYPE=mpt
+#MODEL_PATH=/work/ggjt-model.bin
+# https://huggingface.co/rustformers/mpt-7b-ggml
+MODEL_PATH=/models/mpt-7b-q4_0.bin
+EMBEDDINGS_MODEL_NAME='sentence-transformers/all-mpnet-base-v2'
+SOURCE_DIRECTORY=/sources
+MODEL_N_CTX=2000
+TOKENIZERS_PARALLELISM=False
+N_PREDICT=500
+MODEL_VERBOSE=True
+RTR_TYPE="similarity"
+RTR_K=6
+CHAIN_TYPE="stuff"
