@@ -17,12 +17,20 @@ RUN python3 -m pip install --extra-index-url http://localhost:8080 --no-cache-di
 COPY startup.sh /work/startup.sh
 RUN sh -c /work/startup.sh
 
-USER 2001
+ENV XDG_CACHE_HOME=/tmp/hugcache
 
 COPY demo.py /work/demo.py
 COPY ingest.py /work/ingest.py
 COPY env /work/.env
 COPY documents.py /work/documents.py
 COPY constants.py /work/constants.py
+
+# Copy model and DB into the container... remove if you have volumes
+
+COPY db.tbz /db/db.tbz
+COPY models/mpt-7b-q4_0.bin /models/mpt-7b-q4_0.bin
+RUN tar -Jxvf /db/db.tbz -C /
+
+USER 2001
 
 CMD python3 /work/documents.py

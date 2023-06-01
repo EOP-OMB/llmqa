@@ -6,10 +6,11 @@ apt install -y vim
 #Create my linux user, so I can use mounted volumes nicely, also dockerfile has UID in it.
 useradd --uid 2001 llm
 mkdir /home/llm
+mkdir /db
+mkdir /models
 chown -R llm /home/llm
-#chown -R ${UID} /work
-#chown -R ${UID} /db
-#chown -R ${UID} /models
+chown -R llm /db
+chown -R llm /models
 
 # dev bashrc
 echo "# enable color support of ls and also add handy aliases
