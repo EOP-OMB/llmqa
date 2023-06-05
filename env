@@ -3,7 +3,7 @@ PERSIST_DIRECTORY=/db
 MODEL_TYPE=mpt
 #MODEL_PATH=/work/ggjt-model.bin
 # https://huggingface.co/rustformers/mpt-7b-ggml
-MODEL_PATH=/models/mpt-7b-q4_0.bin
+MODEL_PATH=/models/mpt-7b-chat-q4_0.bin
 EMBEDDINGS_MODEL_NAME='sentence-transformers/all-mpnet-base-v2'
 SOURCE_DIRECTORY=/sources
 MODEL_N_CTX=2000
