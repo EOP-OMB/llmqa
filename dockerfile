@@ -28,6 +28,7 @@ COPY constants.py /work/constants.py
 # Copy model and DB into the container... remove if you have volumes
 
 COPY db.tbz /db/db.tbz
+#COPY models/mpt-7b-q4_0.bin /models/mpt-7b-q4_0.bin
 COPY models/mpt-7b-chat-q4_0.bin /models/mpt-7b-chat-q4_0.bin
 RUN tar -Jxvf /db/db.tbz -C /
 

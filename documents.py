@@ -60,14 +60,13 @@ db = Chroma(persist_directory=persist_directory, embedding_function=embeddings, 
 retriever = db.as_retriever(search_type=retriever_type, search_kwargs={'k':int(retriever_k)})
 
 # prompt for the chain to instruct it how to do things
-promptq = PromptTemplate(template="""Given the following extracted parts of a long document and a question, create a final answer with references ("SOURCES").
+promptq = PromptTemplate(template="""Given the following extracted parts of a long document and a question, create a final answer with references ("SOURCES").  If you don't know the answer, just say that you don't know. Don't try to make up an answer.
+ALWAYS return a "SOURCES" part in your answer.
 
+QUESTION: {question}
 ==
 {summaries}
 ==
-QUESTION: {question}
-If you don't know the answer, just say that you don't know. Don't try to make up an answer.
-ALWAYS return a "SOURCES" part in your answer.
 Final Answer: """, input_variables=["summaries","question"])
 
 # template to use for each of the contents
